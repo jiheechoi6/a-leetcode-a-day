@@ -6,17 +6,19 @@ public:
         int index=0;
         
         for(int num: nums){
+            // cout << num;
             if(num == val){
                 ind.push(index);
             }else{
                 k++;
-                if(ind.size()!= 0){
-                    int i = ind.front();
+                int empty;
+                if(ind.size()!=0){
+                    empty = ind.front();
                     ind.pop();
-                    nums[i] = num;
                 }else{
-                    nums[k-1] = num;
+                    empty = k+1;
                 }
+                nums[min(empty, k-1)] = num;
             }
             index++;
         }
