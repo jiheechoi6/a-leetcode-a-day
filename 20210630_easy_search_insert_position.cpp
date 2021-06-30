@@ -3,29 +3,22 @@ public:
     int searchInsert(vector<int>& nums, int target) {
         int low = 0;
         int high = nums.size() - 1;
-        int mid;
+        int mid = 0;
+        
+        if(target > nums[high]){
+            return high+1;
+        }
         
         while(low < high){
             mid = (high+low)/2;
-            cout << "low: " << low << endl;
-            cout << "high: " << high << endl;
-            cout << "mid: " << mid << endl;
-            int mid_num = nums[mid];
             
-            if(low==high){
-                return mid;
-            }else if(mid_num == target){
-                return mid;
-            }else if(mid_num > target){
-                high = mid-1;
+            if(nums[mid] >= target){
+                high = mid;
             }else{
                 low = mid+1;
+                mid++;
             }
-            
-            cout << "low: " << low << endl;
-            cout << "high: " << high << endl;
-            cout << "mid: " << mid << endl;
         }
-        return mid+1;
+        return mid;
     }
 };
