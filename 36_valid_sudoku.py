@@ -1,8 +1,8 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        cols = collections.defaultdict(set)
-        rows = collections.defaultdict(set)
-        cubes = collections.defaultdict(set)
+        cols = [set() for _ in range(9)]
+        rows = [set() for _ in range(9)]
+        cubes = [set() for _ in range(9)]
         
         for i, j in product(range(9), repeat=2):
             val = board[i][j]
