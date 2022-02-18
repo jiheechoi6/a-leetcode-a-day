@@ -1,11 +1,12 @@
-h =[]
-        # sort = sorted(intervals)
-        intervals.sort(key=lambda x: x[0])
-        for i in intervals:
-            # need a new meeting room
-            if h == [] or h[0] >i[0]:
-                heapq.heappush(h,i[1])
-            # don't need a new meeting room, just update the end time
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        intervals.sort(key=lambda item: item[0])
+        ends = [intervals[0][1]]
+        ans = 1
+        for start, end in intervals[1:]:
+            if start < ends[0]:  # new room
+                ans+=1
+                heapq.heappush(ends, end)
             else:
-                heapq.heapreplace(h,i[1])
-        return len(h)
+                heapq.heapreplace(ends, end)
+        return ans
