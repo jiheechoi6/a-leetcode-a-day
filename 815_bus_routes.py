@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/bus-routes/discuss/151289/Python-BFS-With-Explanation
+
 class Solution:
     def numBusesToDestination(self, routes: List[List[int]], S: int, T: int) -> int:
         if S == T: return 0
