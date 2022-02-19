@@ -1,27 +1,27 @@
 class Solution:
-    min_trx = math.inf
     def minTransfers(self, transactions: List[List[int]]) -> int:
-        graph = collections.defaultdict(int)
-        for i1, i2, amount in transactions:
-            graph[i1] -= amount
-            graph[i2] += amount
+        self.credits = collections.defaultdict(int)
+        self.min_trx = math.inf
+        for giver, receiver, amt in transactions:
+            self.credits[giver] -= amt
+            self.credits[receiver] += amt
             
-        graph = [i for i in graph.values() if i !=0]
-        return self.backtrack(graph, 0, 0)
+        ppl_lst = [usr for usr, amt in self.credits.items() if amt!=0]
         
-    def backtrack(self, graph, idx, trx):
-        if idx >= len(graph):
-            return trx
-        if graph[idx] == 0:
-            return self.backtrack(graph, idx+1, trx)
-        if self.min_trx <= trx:
-            return trx
-
-        for i in range(idx+1, len(graph)):
-            if graph[idx]*graph[i] < 0:
-                graph[i] += graph[idx]
-                self.min_trx = self.backtrack(graph, idx+1, trx+1)
-                graph[i] -= graph[idx]
-                
+        self.backtrack(ppl_lst, 0)
         return self.min_trx
+    
+    def backtrack(self, ppl_lst, cur_trx):
+        if len(ppl_lst)<=1: 
+            self.min_trx = cur_trx
+            return
+        if self.credits[ppl_lst[0]]==0:   self.backtrack(ppl_lst[1:], cur_trx)
+        if cur_trx >= self.min_trx:  return
         
+        for usr in ppl_lst[1:]:
+            if self.credits[usr]*self.credits[ppl_lst[0]]<0:
+                self.credits[usr] += self.credits[ppl_lst[0]]
+                self.backtrack(ppl_lst[1:], cur_trx+1)
+                self.credits[usr] -= self.credits[ppl_lst[0]]
+
+            
