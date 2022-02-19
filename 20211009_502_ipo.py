@@ -1,21 +1,15 @@
 class Solution:
     def findMaximizedCapital(self, k: int, w: int, profits: List[int], capital: List[int]) -> int:
+        pro_cap = sorted(zip(profits, capital), key=lambda x:x[1])
+        heap = []
+        add_idx = 0
         
-        capital_q = []
-        for i in range(len(profits)):
-            capital_q.append((capital[i], profits[i]))
-        
-        heapify(capital_q)
-        avail_p = []  # max heap
-        
-        for i in range(k):
-            while len(capital_q) != 0 and capital_q[0][0] <= w:
-                heappush(avail_p, -heappop(capital_q)[1])
+        for _ in range(k):
+            while add_idx<len(profits) and w>=pro_cap[add_idx][1]:
+                heapq.heappush(heap, -pro_cap[add_idx][0]).  # max heap
+                add_idx += 1
             
-            if len(avail_p) == 0:
-                return w
-            
-            w -= heappop(avail_p)
-            
+            if not heap: return w
+            w -= heapq.heappop(heap)
+
         return w
-        
