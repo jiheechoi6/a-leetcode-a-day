@@ -12,33 +12,27 @@ class Node:
 
 class Solution:
     def construct(self, grid: List[List[int]]) -> 'Node':
-        return self.dfs(grid, 0, 0, len(grid))
+        self.grid = grid
+        return self.recurse(0, 0, len(grid))
+    
+    def recurse(self, rowstart, colstart, width):
+        onecount = 0
+        zerocount = 0
+        for row in range(rowstart, rowstart+width):
+            for col in range(colstart, colstart+width):
+                if self.grid[row][col] == 0:    zerocount += 1
+                else:   onecount += 1
+                
+                if zerocount and onecount:
+                    half = width//2
+                    topleft = self.recurse(rowstart, colstart, half)
+                    topright = self.recurse(rowstart, colstart+half, half)
+                    bottomleft = self.recurse(rowstart+half, colstart, half)
+                    bottomright = self.recurse(rowstart+half, colstart+half, half)
+                    return Node(1, False, topleft, topright, bottomleft, bottomright)
         
-    def dfs(self, grid, row_start: int, col_start: int, length: int):
-        zeros = 0
-        ones = 0
-        is_break = False
-        for i in range(int(row_start), int(row_start+length)):
-            for j in range(int(col_start), int(col_start+length)):
-                if grid[i][j] == 1:
-                    ones += 1
-                else:
-                    zeros += 1
+        val = 1 if onecount else 0
+        return Node(val, True, None, None, None, None)
                 
-                if ones>0 and zeros>0:
-                    is_break = True
-                    break
-            if is_break:
-                break
-                
-        if ones==0 or zeros==0:
-            val = bool(ones)
-            return Node(val, True, None, None, None, None)
-        else:
-            length = length/2
-            topleft = self.dfs(grid, row_start, col_start, int(length))
-            topright = self.dfs(grid, row_start, col_start+length, int(length))
-            bottomleft = self.dfs(grid, row_start+length, col_start, int(length))
-            bottomright = self.dfs(grid, row_start+length, col_start+length, int(length))
-            
-            return Node(True, False, topleft, topright, bottomleft, bottomright)
+                    
+        
