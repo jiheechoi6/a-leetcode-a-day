@@ -1,27 +1,26 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        sign = "+"
         num = 0
+        s = s+'+'
         stk = []
-        s += "/"
-        
+        prev_op = '+'
+
         for ch in s:
-            # print(stk)
-            if ch.isdigit():
-                num = 10*num+int(ch)
+            if ch == ' ':
+                pass
+            elif ch.isdigit():
+                num = num*10 + int(ch)
             else:
-                if ch==' ': continue
-                elif sign=="+":   stk.append(num)
-                elif sign=="-": stk.append(-num)
-                elif sign=='*': stk.append(stk.pop()*num)
-                elif sign=="/":
-                    popped = stk.pop()
-                    add = 0
-                    if popped<0 and popped%num: add=1
-                    stk.append(popped//num+add)
+                if prev_op == '+':
+                    stk.append(num)
+                elif prev_op == '-':
+                    stk.append(-num)
+                elif prev_op == '*':
+                    pre_num = stk.pop()
+                    stk.append(pre_num*num)
+                elif prev_op == '/':
+                    stk.append(math.trunc(stk.pop()/num))
                 num = 0
-                
-                sign = ch
-        
+                prev_op = ch
         return sum(stk)
-                
+        
