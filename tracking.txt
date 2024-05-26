@@ -29,3 +29,10 @@ May 6
 973
 236 *
 
+May 18
+465 Optimal accounting balance
+
+May 23
+28 kpm
+50 pow (fast power algorithm)
+
