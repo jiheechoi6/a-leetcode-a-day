@@ -36,3 +36,11 @@ May 23
 28 kpm
 50 pow (fast power algorithm)
 
+May 26
+2851 string manipulation
+39 combination sum
+40 combination sum 2
+216 combination sum 3
+
+May 27
+377 combination sum 4
