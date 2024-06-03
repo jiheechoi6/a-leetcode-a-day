@@ -50,3 +50,14 @@ May 29
 
 May 30
 1639 dp hard
+
+May 31
+70 dp, fibonacci easy
+198 dp, fibonacci medium
+509 dp, fibonacci easy
+1911 dp, fibonacci medium
+122
+
+June 2
+416 dp, Zero one knapsack
+
