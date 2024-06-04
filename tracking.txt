@@ -60,4 +60,12 @@ May 31
 
 June 2
 416 dp, Zero one knapsack
+494 dp, Zero one knapsack
+
+June 3
+322 dp, unbounded knapsack
+983 dp, unbounded knapsack
+1143 dp, longest common subsequence
+
+June 4
 
