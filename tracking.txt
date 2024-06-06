@@ -65,7 +65,23 @@ June 2
 June 3
 322 dp, unbounded knapsack
 983 dp, unbounded knapsack
-1143 dp, longest common subsequence
+1143 dp, longest common subsequence medium
 
 June 4
+300 dp, longest increasing subsequence medium
+72 dp, string edit distance medium
 
+June 5
+115 dp, distinct subsequence hard
+1 easy
+20 easy
+21 easy
+121 easy
+125 easy
+256 easy
+242 easy
+704 binary search easy
+733 easy
+235 bst medium
+110 tree easy
+141 linked list cycle easy
