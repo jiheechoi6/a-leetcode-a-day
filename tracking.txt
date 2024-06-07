@@ -101,3 +101,7 @@ June 6
 
 June 7
 542 dp medium
+973 heap medium
+3 medium
+15 3 sum medium
+102 queue, tree medium
