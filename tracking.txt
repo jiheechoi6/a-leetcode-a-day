@@ -97,3 +97,7 @@ June 6
 543 tree easy
 876 linked list easy
 104 tree easy
+57 array medium
+
+June 7
+542 dp medium
