@@ -105,3 +105,14 @@ June 7
 3 medium
 15 3 sum medium
 102 queue, tree medium
+
+June 9
+207 tree medium
+208 trie medium
+322 dp medium
+238 array medium
+155 stack medium
+98 bst tree medium
+200 graph medium
+33 binary search medium
+
