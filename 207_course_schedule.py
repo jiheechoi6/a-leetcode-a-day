@@ -1,28 +1,28 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        adjList = [[] for _ in range(numCourses)]
-        for c1, c2 in prerequisites:
-            adjList[c1].append(c2)
+        adjLst = [[] for _ in range(numCourses)]
+        # create adjacency list
+        for course, req in prerequisites:
+            adjLst[req].append(course)
 
-        state = [0] * numCourses
+        inDeg = [0]*numCourses
+        for course, _ in prerequisites:
+            inDeg[course] += 1
+        
+        que = []
+        for i in range(numCourses):
+            if inDeg[i] == 0: # no prerequisites for this course
+                que.append(i)
+        
+        takenCnt = 0
+        while que:
+            takenCnt += 1
+            crs = que.pop(0)
 
-        def hasCycle(v):
-            if state[v] == 1:
-                return False
-            if state[v] == -1:
-                return True
+            for nextCrs in adjLst[crs]:
+                inDeg[nextCrs] -= 1
 
-            state[v] = -1
-
-            for i in adjList[v]:
-                if hasCycle(i):
-                    return True
-
-            state[v] = 1
-            return False
-
-        for v in range(numCourses):
-            if hasCycle(v):
-                return False
-
-        return True
+                if inDeg[nextCrs] == 0:
+                    que.append(nextCrs)
+        
+        return takenCnt == numCourses
