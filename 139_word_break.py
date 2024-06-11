@@ -1,10 +1,20 @@
 class Solution:
-    def wordBreak(self, s: str, words: List[str]) -> bool:
-        dp = [True]
-        words = set(words)
-        max_len = max(map(len, words))
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        memo = {}
         
-        for i, ch in enumerate(s):
-            dp.append(any(s[j:i+1] in words and dp[j] for j in range(max(0, i-max_len), i+1)))
+        def construct(cur):
+            if not cur:
+                return True
+            if cur in memo:
+                return memo[cur]
+
+            for word in wordDict:
+                if cur.startswith(word):
+                    if construct(cur[len(word):]):
+                        memo[cur] = True
+                        return True
+            
+            memo[cur] = False
+            return False
         
-        return dp[-1]
+        return construct(s)
