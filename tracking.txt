@@ -115,4 +115,13 @@ June 9
 98 bst tree medium
 200 graph medium
 33 binary search medium
+39 combination sum medium
+46 permutations medium
 
+June 10
+981 bst medium
+
+June 11
+721 union find meduim
+75 medium
+139 backtracking, memoization medium
