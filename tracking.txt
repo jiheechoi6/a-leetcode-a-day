@@ -125,3 +125,7 @@ June 11
 721 union find meduim
 75 medium
 139 backtracking, memoization medium
+416 dp medium
+
+June 12
+8 medium
