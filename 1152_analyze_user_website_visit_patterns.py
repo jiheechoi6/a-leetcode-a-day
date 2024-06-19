@@ -1,17 +1,14 @@
 class Solution:
     def mostVisitedPattern(self, username: List[str], timestamp: List[int], website: List[str]) -> List[str]:
-        zipped = zip(timestamp, username, website)
-        # sort the visits
-        sortedVisit = sorted(zipped, key = lambda x: x[0])
-
-        # divide by users
-        userVisits = defaultdict(list)
-        for _, user, site in sortedVisit:
-            userVisits[user].append(site)
+        sortedVisits = sorted(zip(timestamp, username, website), key=lambda x: x[0])
         
-        combsCount = Counter()
-        for _, sites in userVisits.items():
-            combsCount.update(Counter(set(combinations(sites, 3))))
+        userVisits = defaultdict(list)
+        for _, user, site in sortedVisits:
+            userVisits[user].append(site)
 
-        return max(sorted(combsCount), key = combsCount.get)
+        combCnt = Counter()
+        for user, sites in userVisits.items():
+            combCnt.update(set(combinations(sites, 3)))
+
+        return max(sorted(combCnt), key=combCnt.get)
         
