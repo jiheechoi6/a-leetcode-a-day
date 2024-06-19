@@ -130,3 +130,12 @@ June 11
 June 12
 8 medium
 54 medium
+
+June 18
+2781 hard
+2340 medium
+1152 medium
+1485 tree medium
+138 linked list medium
+2268 medium
+
