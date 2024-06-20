@@ -138,4 +138,12 @@ June 18
 1485 tree medium
 138 linked list medium
 2268 medium
+
+June 19
 2055 bst medium
+472 dfs + memo hard
+767 medium
+2870 medium
+
+June 20
+127 bfs hard
