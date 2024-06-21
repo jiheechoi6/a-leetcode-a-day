@@ -147,3 +147,6 @@ June 19
 
 June 20
 127 bfs hard
+
+June 21
+149 medium
