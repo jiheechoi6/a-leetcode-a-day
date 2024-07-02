@@ -148,8 +148,11 @@ June 19
 June 20
 127 bfs hard
 
-July 1
-875 bst medium
-
 June 21
 149 medium
+
+July 2
+791 string medium
+
+July 1
+875 bst medium
