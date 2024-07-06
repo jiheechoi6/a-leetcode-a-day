@@ -162,3 +162,7 @@ July 3
 July 4
 158 hard
 716 stack hard
+
+July 5
+304 medium
+994 medium
