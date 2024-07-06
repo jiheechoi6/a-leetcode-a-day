@@ -166,3 +166,8 @@ July 4
 July 5
 304 medium
 994 medium
+
+July 6
+365 bfs medium
+253 greedy medium
+
