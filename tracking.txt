@@ -171,3 +171,7 @@ July 6
 365 bfs medium
 253 greedy medium
 
+July 7
+76 sliding window hard
+84 monotonic stack hard review
+109 bst medium
