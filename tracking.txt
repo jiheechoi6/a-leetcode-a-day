@@ -182,3 +182,4 @@ July 8
 
 July 9
 642 trie hard
+1882 heap medium
