@@ -183,3 +183,6 @@ July 8
 July 9
 642 trie hard
 1882 heap medium
+
+July 10
+Blind 75 review
