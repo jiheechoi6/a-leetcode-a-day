@@ -9,14 +9,11 @@ class Solution:
         res = 0
 
         while que:
-            informerCnt = len(que)
+            informer, curTime = que.popleft()
+            res = max(res, curTime)
+            informerTime = curTime + informTime[informer] # time after informer informs everyone
 
-            for _ in range(informerCnt):
-                informer, curTime = que.popleft()
-                res = max(res, curTime)
-                informerTime = curTime + informTime[informer] # time after informer informs everyone
-
-                for informee in conMap[informer]:
-                    que.append((informee, informerTime))
+            for informee in conMap[informer]:
+                que.append((informee, informerTime))
 
         return res
